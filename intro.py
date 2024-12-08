@@ -132,9 +132,9 @@ def personal_information_block():
     )
     music = container.text_input("신청곡:", placeholder="신청곡을 자유롭게 적어주세요!")
     additional_info = container.text_area("추가 정보:", placeholder="""
-                                          호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!
-                                          8시 30분 이후에 도착하시는 분은 저녁 식사 여부도 알려 주세요!
-                                          """)
+        호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!
+        8시 30분 이후에 도착하시는 분은 저녁 식사 여부도 알려 주세요!
+    """)
 
     # session_state에 저장
     st.session_state["personal_information"] = {
