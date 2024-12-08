@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import time
 
 def intro_page():
     '''
@@ -112,7 +113,7 @@ def personal_information_block():
     container = st.container(border=True)
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
     additional_info = container.text_area("추가 정보:", placeholder="본인의 특기 사항이나 취미 등을 입력해주세요.")
-    arrival_time = container.time_input("*도착 시간을 선택하세요:")
+    arrival_time = container.time_input("*도착 시간을 선택하세요:", value=time(19, 0))
     departure_time = container.time_input("출발 시간을 선택하세요:")
 
     # session_state에 저장
