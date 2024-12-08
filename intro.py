@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import time
+import save
 
 def intro_page():
     '''
@@ -38,16 +39,20 @@ def intro_page():
     # 개인정보 수집
     personal_information_block()
 
-    load_image()
-
     # 제출
-    submitted = st.button("제출 및 다음 세션으로 진행 ➡️")
+    submitted = st.button("🥳 제출 🥳")
+    st.balloons()  # 애니메이션 효과
     if submitted:
         # 필수 항목 검증
         user = st.session_state["personal_information"]
         if user["name"] and user["arrival_time"]:
             # 성공 및 페이지 이동
             st.success("정보가 성공적으로 제출되었습니다. 다음 세션으로 이동합니다.")
+
+            responses = process_response()
+            save.record_to_sheets(responses)
+
+
             st.session_state["page"] = "experiment"
             st.rerun()
         else:
@@ -131,19 +136,14 @@ def personal_information_block():
         "additional_info": additional_info,
     }
 
-def load_image():
-    # 이미지 경로 (로컬 파일 경로)
-    image_path = "무량공처.webp"
+def process_response():
+    responses = []
+    
+    # personal_information에서 각 값을 꺼내서 responses에 추가
+    responses.append(st.session_state["personal_information"]['name'])
+    responses.append(st.session_state["personal_information"]['age'])
+    responses.append(st.session_state["personal_information"]['tel'])
+    responses.append(st.session_state["personal_information"]['arrival_time'])
+    responses.append(st.session_state["personal_information"]['additional_info'])
 
-    # 하이퍼링크 생성
-    st.markdown(
-        f'<a href="#" onclick="window.scrollTo(0, document.body.scrollHeight); st.session_state.selected_image=\'{image_path}\'; return false;">이미지 1을 클릭하여 표시</a>',
-        unsafe_allow_html=True
-    )
-
-    # 선택된 이미지 표시
-    if st.session_state["selected_image"]:
-        st.markdown("#### 선택된 이미지:")
-        st.image(st.session_state["selected_image"], use_column_width=True)
-    else:
-        st.markdown("이미지를 선택해주세요!")
+    return responses
