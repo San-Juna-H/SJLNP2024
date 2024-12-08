@@ -111,24 +111,10 @@ def personal_information_block():
     # 개인정보 수집
     container = st.container(border=True)
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
-    user_age = container.number_input("*나이:", min_value=10, max_value=100, value=20)
-    user_gender = container.radio("*성별:", ["남성", "여성", "기타"], horizontal=True)
-    education_level = container.selectbox(
-        "*최종 학력:",
-        ["고등학교 졸업", "대학교 졸업", "대학원 석사 졸업", "대학원 박사 졸업"], index=1
-    )
-    familiar_fields = container.multiselect(
-        "관련 경험 또는 친숙한 분야:",
-        ["음식과 음료", "공연 예술", "비즈니스와 경제", "정치와 정부", "생물학", "화학", "컴퓨팅", "지구와 환경", "수학", "의학과 건강", "물리학", "공학", "기술"]
-    )
     additional_info = container.text_area("추가 정보:", placeholder="본인의 특기 사항이나 취미 등을 입력해주세요.")
 
     # session_state에 저장
     st.session_state["personal_information"] = {
         "name": user_name,
-        "age": user_age,
-        "gender": user_gender,
-        "education_level": education_level,
-        "familiar_fields": familiar_fields,
         "additional_info": additional_info
     }
