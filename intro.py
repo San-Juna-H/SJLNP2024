@@ -86,7 +86,7 @@ def intro_explanation_block():
 
         \* 흑백 바텐더에 사용하고 싶은 술 및 음료 등은 자유롭게 지참 가능\n
         \** 애장품 교환식을 위한 애장품 지참 필수   
-              (**구매 불가.** 단, 포장 - 박스, 쇼핑백 등에 한해 구매 가능. 미스터리한 포장으로 💕**두근두근**💕 레벨 업!)
+        (**구매 불가.** 단, 포장 - 박스, 쇼핑백 등에 한해 구매 가능. 미스터리한 포장으로 💕**두근두근**💕 레벨 업!)
         """,
         unsafe_allow_html=True
     )
@@ -112,7 +112,8 @@ def personal_information_block():
     # session_state에 저장
     st.session_state["personal_information"] = {
         "name": user_name,
-        "arrival_time": str(arrival_time),  # 시간을 문자열로 변환하여 저장
+        "tel": str(user_tel),
+        "arrival_time": str(arrival_time),
         "additional_info": additional_info,
     }
 
