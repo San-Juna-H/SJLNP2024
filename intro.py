@@ -122,16 +122,18 @@ def load_image():
         {"title": "이미지 1", "url": image_path},  # 로컬 이미지 경로
     ]
 
+    
     # 상태 초기화
     if "selected_image" not in st.session_state:
         st.session_state["selected_image"] = None
 
     st.markdown("### 이미지를 클릭하면 확대된 이미지가 아래에 표시됩니다:")
 
-    # 이미지 클릭 이벤트
-    for img in images:
-        if st.button(img["title"]):
-            st.session_state["selected_image"] = img["url"]
+    # 하이퍼링크 생성
+    st.markdown(
+        f'<a href="#" onclick="window.scrollTo(0, document.body.scrollHeight); st.session_state.selected_image=\'{image_path}\'; return false;">이미지 1을 클릭하여 표시</a>',
+        unsafe_allow_html=True
+    )
 
     # 선택된 이미지 표시
     if st.session_state["selected_image"]:
