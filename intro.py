@@ -115,7 +115,7 @@ def personal_information_block():
 
 def load_image():
     # 이미지 경로 (로컬 파일 경로)
-    image_path = "/Users/june/__github__/SJLNP2024/무량공처.webp"
+    image_path = "무량공처.webp"
 
     # 이미지 리스트
     images = [
