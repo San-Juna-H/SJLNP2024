@@ -86,6 +86,25 @@ def intro_explanation_block():
         unsafe_allow_html=True
     )
 
+        # 일정 데이터
+    schedule = [
+        ("18:00~19:00", "도착 (18시부터 열려 있으니 자유롭게 도착)"),
+        ("19:00~20:00", "웰컴 디너 🍽 (무엇을 먹을지 고민해보세요)"),
+        ("20:00~21:00", "2024 버킷 불태우기 🔥 (새 출발 다짐)"),
+        ("21:00~22:00", "흑백바텐더 🍸 (나만의 시그니처 칵테일 만들기)"),
+        ("22:00~23:00", "올해의 GOAT 공연 선정 🎭 (최고의 공연 투표)"),
+        ("23:00~24:00", "애장품 교환식 🎁 (특별한 추억 만들기)"),
+        ("24:00~", "새해 카운트다운 🎉 & 새벽 담소 🍜")
+    ]
+
+    # 카드 형식 출력
+    st.markdown("### 📅 연말 파티 일정표")
+    for time, event in schedule:
+        with st.container():
+            col1, col2 = st.columns([1, 3])
+            col1.markdown(f"**{time}**")
+            col2.markdown(event)
+
 def personal_information_block():
     '''    
     개인 정보 수집 블록
