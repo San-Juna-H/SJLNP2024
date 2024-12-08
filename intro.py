@@ -15,6 +15,7 @@ def intro_page():
         
     '''
     # 제목 중앙 정렬
+    st.snow()  # 애니메이션 효과
     st.markdown(
         """
         <h1 style="text-align: center;">🌟 성은준's Last Night Party 🌟</h1>
