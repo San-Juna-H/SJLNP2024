@@ -126,12 +126,15 @@ def personal_information_block():
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
     user_tel = container.text_input("*연락처:", placeholder="예: 010-1234-5678")
     # Selectbox를 이용하여 도착 시간을 선택
-    arrival_time = st.selectbox(
+    arrival_time = container.selectbox(
         "*도착 시간을 선택하세요:", 
-        ["7시 전", "7시 반 전", "8시 전", "8시 반 전", "8시 반 이후"]
+        ["~ 7:00", "7:00 ~ 7:30", "7:30 ~ 8:00", "8:00 ~ 8:30", "8:30 ~ "]
     )
     music = container.text_input("신청곡:", placeholder="신청곡을 자유롭게 적어주세요!")
-    additional_info = container.text_area("추가 정보:", placeholder="호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!")
+    additional_info = container.text_area("추가 정보:", placeholder="""
+                                          호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!
+                                          8시 30분 이후에 도착하시는 분은 저녁 식사 여부도 알려 주세요!
+                                          """)
 
     # session_state에 저장
     st.session_state["personal_information"] = {
