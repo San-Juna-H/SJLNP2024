@@ -113,6 +113,14 @@ def personal_information_block():
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
     additional_info = container.text_area("추가 정보:", placeholder="본인의 특기 사항이나 취미 등을 입력해주세요.")
 
+
+    # 도착 및 출발 시간 수집
+    st.subheader("참석 시간 정보")
+    arrival_date = st.date_input("*도착 날짜를 선택하세요:")
+    arrival_time = st.time_input("*도착 시간을 선택하세요:")
+    departure_date = st.date_input("출발 날짜를 선택하세요:")
+    departure_time = st.time_input("출발 시간을 선택하세요:")
+
     # session_state에 저장
     st.session_state["personal_information"] = {
         "name": user_name,
