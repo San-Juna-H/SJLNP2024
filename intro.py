@@ -48,17 +48,6 @@ def intro_explanation_block():
     Returns: None
         
     '''
-def intro_explanation_block():
-    '''
-    개요 설명 블록
-    
-    주어진 텍스트 출력
-    
-    Args: None
-        
-    Returns: None
-        
-    '''
     st.markdown(
         """
         ### 🎉 2024년의 마지막 밤, 함께 해요! 🎉
