@@ -128,7 +128,7 @@ def personal_information_block():
     # Selectbox를 이용하여 도착 시간을 선택
     arrival_time = container.selectbox(
         "*도착 시간을 선택하세요:", 
-        ["~ 7:00", "7:00 ~ 7:30", "7:30 ~ 8:00", "8:00 ~ 8:30", "8:30 ~ "]
+        ["~ 7:00", "7:00 ~ 7:30", "7:30 ~ 8:00", "8:00 ~ 8:30", "8:30 ~ "], index = 1
     )
     music = container.text_input("신청곡:", placeholder="신청곡을 자유롭게 적어주세요!")
     additional_info = container.text_area("추가 정보:", placeholder="""
