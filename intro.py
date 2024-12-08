@@ -104,6 +104,7 @@ def personal_information_block():
     # 개인정보 수집
     container = st.container(border=True)
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
+    user_tel = container.text_input("*연락처:", placeholder="예: 010-1234-5678")
     arrival_time = container.time_input("*도착 시간을 선택하세요:", value=time(19, 0))
     additional_info = container.text_area("추가 정보:", placeholder="호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!")
 
