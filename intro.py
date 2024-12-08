@@ -13,15 +13,23 @@ def intro_page():
     Returns: None
         
     '''
-    # 제목
-    st.title("🌟 성은준's Last Night Party 🌟")
+    # 제목 중앙 정렬
     st.markdown(
-    """
-    ### 🎉 2024년의 마지막 밤, 함께 해요! 🎉
-
-    따뜻한 마음과 즐거운 에너지로 **2024년 마지막 밤**을 보내고자 합니다. 여러분의 참여를 기다리고 있어요!  
-    """
+        """
+        <h1 style="text-align: center;">🌟 성은준's Last Night Party 🌟</h1>
+        """,
+        unsafe_allow_html=True
     )
+
+    # 내용 중앙 정렬
+    st.markdown(
+        """
+        <h3 style="text-align: center;">🎉 2024년의 마지막 밤, 함께 해요! 🎉</h3>
+        <p style="text-align: center;">따뜻한 마음과 즐거운 에너지로 <strong>2024년 마지막 밤</strong>을 보내고자 합니다. 여러분의 참여를 기다리고 있어요!</p>
+        """,
+        unsafe_allow_html=True
+    )
+    
     st.divider()  # 구분선
 
     # 실험 설명
