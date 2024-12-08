@@ -41,17 +41,18 @@ def intro_page():
 
     # 제출
     submitted = st.button("🥳 제출 🥳")
-    st.balloons()  # 애니메이션 효과
+
     if submitted:
         # 필수 항목 검증
         user = st.session_state["personal_information"]
         if user["name"] and user["arrival_time"]:
             # 성공 및 페이지 이동
-            st.success("정보가 성공적으로 제출되었습니다. 다음 세션으로 이동합니다.")
+            st.success("정보가 성공적으로 제출되었습니다! 파티에서 만나요!")
+            st.balloons()  # 애니메이션 효과
 
             responses = process_response()
             save.record_to_sheets(responses)
-            
+
             st.rerun()
         else:
             # 오류 메시지 출력
