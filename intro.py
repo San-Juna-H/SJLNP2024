@@ -51,9 +51,7 @@ def intro_page():
 
             responses = process_response()
             save.record_to_sheets(responses)
-
-
-            st.session_state["page"] = "experiment"
+            
             st.rerun()
         else:
             # 오류 메시지 출력
