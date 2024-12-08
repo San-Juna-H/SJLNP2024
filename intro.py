@@ -28,7 +28,7 @@ def intro_page():
     if submitted:
         # 필수 항목 검증
         user = st.session_state["personal_information"]
-        if user["name"] and user["age"] and user["gender"] and user["education_level"]:
+        if user["name"] and user["arrival_time"]:
             # 성공 및 페이지 이동
             st.success("정보가 성공적으로 제출되었습니다. 다음 세션으로 이동합니다.")
             st.session_state["page"] = "experiment"
@@ -101,12 +101,12 @@ def personal_information_block():
     # 개인정보 수집
     container = st.container(border=True)
     user_name = container.text_input("*이름:", placeholder="예: 홍길동")
-    additional_info = container.text_area("추가 정보:", placeholder="본인의 특기 사항이나 취미 등을 입력해주세요.")
     arrival_time = container.time_input("*도착 시간을 선택하세요:", value=time(19, 0))
-    departure_time = container.time_input("출발 시간을 선택하세요:")
+    additional_info = container.text_area("추가 정보:", placeholder="호스트에게 하고 싶은 말이 있다면 자유롭게 적어주세요!")
 
     # session_state에 저장
     st.session_state["personal_information"] = {
         "name": user_name,
-        "additional_info": additional_info
+        "arrival_time": str(arrival_time),  # 시간을 문자열로 변환하여 저장
+        "additional_info": additional_info,
     }
