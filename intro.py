@@ -140,7 +140,6 @@ def process_response():
     
     # personal_information에서 각 값을 꺼내서 responses에 추가
     responses.append(st.session_state["personal_information"]['name'])
-    responses.append(st.session_state["personal_information"]['age'])
     responses.append(st.session_state["personal_information"]['tel'])
     responses.append(st.session_state["personal_information"]['arrival_time'])
     responses.append(st.session_state["personal_information"]['additional_info'])
